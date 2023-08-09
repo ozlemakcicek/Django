@@ -1,8 +1,25 @@
 from django.db import models
+from ckeditor.fields import RichTextField 
 
-class Product(models.Model):
+# Many_to_many ilsikili bir model.asagidaki modelle iliskisini saglamak icin oraya gidip kodu yaziyrz
+class Category(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+        
+    def __str__(self):
+        return self.name
+
+
+# Many_to_one iliskili model
+class Product(models.Model):
+    categories = models.ManyToManyField(Category, related_name="products")
+    name = models.CharField(max_length=100)
+    #description = models.TextField(blank=True, null=True)
+    description=RichTextField(blank=True, null=True)
     is_in_stock = models.BooleanField(default=True)
     slug = models.SlugField(null=True, blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
