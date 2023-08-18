@@ -1,0 +1,56 @@
+# # PYTHON 
+# #Tam Sürüm icin;
+# #FROM python
+# #Medium Level icin; altyapi kurulumu
+# FROM python:slim-bullseye  
+
+# # Base Direction for app;
+# WORKDIR /backend
+
+# #Files:
+# # COPY ./requirements.txt /backend/requirements.txt
+
+# COPY . .
+
+# # Installation app-requirments: Run komutu image olusturuken kullanilir.programi calistirirken Run kullanilmaz CMD ile olan asagidaki komut kullanilir
+# # RUN pip install -r requirements.txt --no-cache-dir
+# RUN pip install -r requirements.txt 
+
+
+
+# # Run after container:
+# CMD ["python manage.py runserver 0.0.0.0:8000"]
+# # artik bu yazdigimiz dockerfile ile terminalde hepsini indirelim ve sonuna da dosya adini yazalim. docker build ./backend -t backend_1
+
+
+
+
+
+# Python:
+# last version:
+# FROM python
+# light version
+FROM python:3.10.8-slim-bullseye
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set main folder in docker:
+WORKDIR /backend
+
+# Copy file from local to docker:
+COPY requirements.txt /backend/requirements.txt
+
+# Run shell-command in docker before build:
+RUN pip install -r requirements.txt --no-cache-dir
+
+# copy all from local-files (.) to docker (/backend):
+COPY . /backend
+
+# Run shell-script:
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# App Port (optional)
+EXPOSE 8000
+
+# docker build ./ -t backend_1
+# docker run -p 8000:8000 --name con_1 backend_1
+# docker run -d -p 8000:8000 --name con_1 backend_1  # deamon mode(arkaplanda calis)

@@ -1,0 +1,30 @@
+version: '1.0 ' # opsiyonel
+
+# frontendin calismasi sartini backend in calismasi sartina baglayalim
+services:
+
+
+  frontend:
+   # container_name: "anotherName"  # Containera farkli isim vermke icin
+    image: "docker-compose-frontend"
+    build: ./frontend
+    ports:
+      - 3000:3000
+      - 80:3000
+    restart: on-failure
+    depends_on:
+      - backend
+  backend:
+    #Varsa kullan yoksa build et
+    image: "docker-compose-backend"
+    # Proje klasoru
+    build: ./backend
+    # Portlar
+    ports:
+      - 8000:8000  # dis port : ic port
+    restart: on-failure   # hata durumunda stop/start yap
+
+  
+
+  
+      
