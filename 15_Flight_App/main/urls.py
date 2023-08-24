@@ -9,9 +9,9 @@ from drf_yasg import openapi
  
 schema_view = get_schema_view( 
     openapi.Info( 
-        title="Personnel API", 
+        title="Flight Reservation API", 
         default_version="v1", 
-        description="Personnel API project provides personnel management", 
+        description="Flight Reservation API project provides flight and reservation info", 
         terms_of_service="#", 
         contact=openapi.Contact(email="rafe@clarusway.com"),  # Change e-mail on this line! 
         license=openapi.License(name="BSD License"), 
@@ -32,12 +32,5 @@ urlpatterns = [
     
     #my urls
     path('users/', include('users.urls')),
+    path('', include('flights.urls')),
 ]
-
-# image kullandığım için
-
-from django.conf import settings
-from django.conf.urls.static import static
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# canlı da seç beğen https://django-storages.readthedocs.io/en/latest/

@@ -55,12 +55,3 @@ class CustomTokenSerializer(TokenSerializer):
     
     class Meta(TokenSerializer.Meta):
         fields=("key","user")
-
-
-from .models import Profile
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Profile
-        fields="__all__"
-        
-

@@ -1,5 +1,12 @@
 ```sh
-#! EGER baskasinin reposundan projeyi cekiyorsan once pip install -r requirements.txt yapmalisinki requirements dosyasindaki butun paketleri getirsin ve calsitirsin
+#! EGER baskasinin reposundan projeyi cekiyorsan once  python -m venv env
+#    3        0.209 .\env\Scripts\activate
+#    4       22.572 pip install djangorestframework
+#    5       12.643 pip install -r requirements.txt  #ki requirements dosyasindaki butun paketleri getirsin ve calsitirsin
+#    6        0.651 python manage.py makemigrations
+#    7        2.336 python manage.py makemigrations
+#    8        2.109 python manage.py migrate
+#    9    15:44.352 python manage.py runserver 
 #! database icin ise py manage.py makemigrations ve migrete yapmalisin
 
 # 1- calisacagin klasore gir ve terminalde powershell i sec
@@ -7,7 +14,6 @@
 # 3- .\env\Scripts\activate(deactivate diyerek de iptal edip tekrar activate yapabilrisin)  
 # 4- pip install djangorestframework.Ve maindeki settings de installed apps icine  #3rd parth apps diyerek 'rest_framework' ekliyoruz
 # 5- django-admin startproject main .
-# 5i- 
 # 6- python manage.py runserver
 # 7- pip freeze >requirements.txt
 # 8- pip install python-decouple(SECRET_KEY i sifrelemek icin)

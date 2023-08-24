@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     
     #my apps
     'users',
+    'flights',
     
     
 ]
@@ -203,8 +204,3 @@ REST_FRAMEWORK = {
 REST_AUTH = {
     'TOKEN_SERIALIZER': 'users.serializers.CustomTokenSerializer',
 }
-
-# kendi modelinizi kullanacaksanız
-# AUTH_USER_MODEL = 'users.MyUser'
-MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR
