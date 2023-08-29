@@ -57,12 +57,32 @@ def student_addView(request):
      return render(request,'templateApp/student_add.html',context)
 
 
-
-
+#!POST islemi
 class StudentAddView(generic.CreateView):
      model=Student
      form_class=StudentForm
-     success_url=reverse_lazy('list')  # nereye yonlendirmesini istersek onu yaziyoruz
+     success_url=reverse_lazy('list2')  # nereye yonlendirmesini istersek onu yaziyoruz
      template_name='templateApp/student_add.html'
 
 
+#!GET islemi
+class StudentListView(generic.ListView):
+     model=Student
+     #form_class=StudentForm
+     #success_url=reverse_lazy('list')  # nereye yonlendirmesini istersek onu yaziyoruz
+     # default olarak student_list.html degistirecekseniz templatename e ata
+     #template_name='templateApp/student_add.html'
+
+#!DETAIL 
+class StudentDetailView(generic.DetailView):
+     model=Student
+     #pk_url_kwarg='id'   #pk yerine id kullanmak istersek
+     # default olarak student_detail.html degistirecekseniz templatename e ata
+     
+
+#! UPDATE islemi
+class StudentUpdateView(generic.UpdateView):
+     model=Student
+     form_class=StudentForm
+     success_url=reverse_lazy('list2')  # nereye yonlendirmesini istersek onu yaziyoruz
+     template_name='templateApp/student_add.html'
