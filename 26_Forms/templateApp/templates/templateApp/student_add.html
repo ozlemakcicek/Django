@@ -1,0 +1,22 @@
+{% extends 'templateApp/base.html' %}
+
+
+{% block title %}
+    this page for STUDENT ADD
+{% endblock title %}
+
+
+{% block body %}
+    <form action="" method="post">
+
+        {% comment %} form post sırasında sızmaları/ taklitleri engelllemk için {% endcomment %}
+        
+        {% csrf_token %}  
+
+        {{ form.as_p }}
+        <input type="submit" value="Add">
+
+    </form>
+   
+{% endblock body %}
+    
