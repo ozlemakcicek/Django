@@ -7,7 +7,7 @@
 # 3- .\env\Scripts\activate(deactivate diyerek de iptal edip tekrar activate yapabilrisin)  
 # 4- pip install djangorestframework.Ve maindeki settings de installed apps icine  #3rd parth apps diyerek 'rest_framework' ekliyoruz
 # 5- django-admin startproject main .
-# 5i- 
+# 5i- python manage.py startapp appname
 # 6- python manage.py runserver
 # 7- pip freeze >requirements.txt
 # 8- pip install python-decouple(SECRET_KEY i sifrelemek icin)
